@@ -15,6 +15,11 @@ java --module-path out -Xlog:module\*=debug -m module.starter/pbouda.module.star
 java --module-path out --show-module-resolution -m module.starter/pbouda.module.starter.Application
 ```
 
+```
+You can verify that by printing the thread ID with -Xlog:module*=debug:stdout:tid, 
+which shows the same ID for all module related operations.
+```
+
 
 ## Don't use a dash in the module packages
 
