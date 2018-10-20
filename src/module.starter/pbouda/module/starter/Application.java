@@ -9,5 +9,7 @@ public class Application {
         Executes.getTransitiveObject();
         Executes.callInternalObject();
         Executes.getInternalObject();
+
+//        Executes.getInternalObject().toString();
     }
 }

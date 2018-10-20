@@ -5,7 +5,14 @@ rm -rf out && javac -d out --module-source-path src -m module.starter
 ```
 
 ```
-java --module-path out -m module.starter/pbouda.module.starter.Application
+java -Xlog:module*=debug --module-path out -m module.starter/pbouda.module.starter.Application
+```
+
+Extensive logging:
+(\* because of ZSH)
+```
+java --module-path out -Xlog:module\*=debug -m module.starter/pbouda.module.starter.Application
+java --module-path out --show-module-resolution -m module.starter/pbouda.module.starter.Application
 ```
 
 
@@ -29,3 +36,14 @@ src/module.alfa/...
 ## Return internal type
 
 I can use function which returns an internal type until I assign this type or create an import.
+
+Once you call the method on the return internal object then it fails, even if you don't use the type explicitly.
+Example:
+
+```
+Executes.getInternalObject().toString();
+
+src/module.starter/pbouda/module/starter/Application.java:13: error: Object.toString() is defined in an inaccessible class or interface
+        Executes.getInternalObject().toString();
+```
+
